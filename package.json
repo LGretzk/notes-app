@@ -9,5 +9,10 @@
   },
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "jest": "^28.1.0",
+    "jest-environment-jsdom": "^28.1.0",
+    "jest-fetch-mock": "^3.0.3"
+  }
 }
