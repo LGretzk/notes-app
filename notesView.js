@@ -37,6 +37,8 @@ class NotesView {
     this.api.loadNotes((data) => {
       this.model.setNotes(data.notes);
       this.displayNotes();
+    }, () => {
+      this.displayError();
     });
   }
 
@@ -44,7 +46,16 @@ class NotesView {
     this.api.createNote(text, (data) => {
       this.model.addNote(data.content);
       this.displayNotes();
+    }, () => {
+      this.displayError();
     });
+  }
+
+  displayError() {
+    const errorEl = document.createElement("div");
+    errorEl.innerText = "Oops, something went wrong!";
+    errorEl.className = 'error';
+    this.mainContainerEl.append(errorEl);
   }
 };
 

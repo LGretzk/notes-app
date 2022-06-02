@@ -83,12 +83,20 @@ describe('Page view', () => {
   //   const view = new View(model, api);
   //   let error = "Oops, something went wrong!"
 
-  //   fetch.mockResponseOnce(error);
+  //   fetch.mockResponseOnce(JSON.stringify(error));
 
   //   view.addNote("Buy bread", (returnedData) => {
-  //     expect(returnedData.content).toEqual(error);
+  //     expect(returnedData).toEqual(error);
   //   });
   // });
+
+  it('displays error message', () => {
+    const model = new Model;
+    const api = new Api;
+    const view = new View(model, api);
+    view.displayError();
+    expect(document.querySelector('div.error').innerText).toBe("Oops, something went wrong!");
+  })
 
   it('displays notes from the NotesApi', () => {
     const model = new Model;
