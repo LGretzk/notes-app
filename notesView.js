@@ -1,4 +1,4 @@
-class View {
+class NotesView {
   constructor(model, api) {
     this.model = model;
     this.api = api;
@@ -34,9 +34,11 @@ class View {
   }
 
   displayNotesFromApi() {
-    this.api.loadNotes((data) => {this.model.setNotes(data)});
-    this.displayNotes();
+    this.api.loadNotes((data) => {
+      this.model.setNotes(data.notes)
+      this.displayNotes();
+    });
   }
 };
 
-module.exports = View;
+module.exports = NotesView;
