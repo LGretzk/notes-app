@@ -14,10 +14,10 @@ class NotesView {
     });
   }
 
-  addNote(text) {
-    this.model.addNote(text);
-    this.displayNotes();
-  }
+  // addNote(text) {
+  //   this.model.addNote(text);
+  //   this.displayNotes();
+  // }
 
   displayNotes() {
     // this.mainContainerEl.innerHTML = "";
@@ -36,7 +36,13 @@ class NotesView {
   displayNotesFromApi() {
     this.api.loadNotes((data) => {
       this.model.setNotes(data.notes);
-      console.log('data notes ==> ' + data.notes);
+      this.displayNotes();
+    });
+  }
+
+  addNote(text) {
+    this.api.createNote(text, (data) => {
+      this.model.addNote(data.content);
       this.displayNotes();
     });
   }

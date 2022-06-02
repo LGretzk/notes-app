@@ -6,7 +6,7 @@ class NotesApi {
   }
 
   createNote(text, callback) {
-    fetch('http://localhost:3000/notes',{
+    fetch('http://localhost:3000/notes', {
       headers: {'Content-Type': 'application/json'},
       method: "POST",
       body: JSON.stringify({content: text}),

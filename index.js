@@ -11,5 +11,3 @@ const view = new NotesView(model, api);
 console.log(model.getNotes());
 
 view.displayNotesFromApi();
-
-console.log('after displaynotes ====> ' + model.getNotes());

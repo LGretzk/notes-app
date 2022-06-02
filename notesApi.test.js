@@ -19,10 +19,11 @@ describe("API class", () => {
     const api = new NotesApi;
 
     fetch.mockResponseOnce(JSON.stringify({
-      notes: ['new note']
+      content: 'new note'
     }));
-    api.createNote('new note', data => {
-      expect(data.notes.pop()).toBe('new note')
+
+    api.createNote('new note', (data) => {
+      expect(data.content).toBe('new note')
     });
   });
 });
