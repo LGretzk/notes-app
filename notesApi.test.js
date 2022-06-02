@@ -14,4 +14,15 @@ describe("API class", () => {
       expect(returnedData.notes).toEqual(['this is a test note']);
     });
   });
+
+  it('creates a new note', () => {
+    const api = new NotesApi;
+
+    fetch.mockResponseOnce(JSON.stringify({
+      notes: ['new note']
+    }));
+    api.createNote('new note', data => {
+      expect(data.notes.pop()).toBe('new note')
+    });
+  });
 });

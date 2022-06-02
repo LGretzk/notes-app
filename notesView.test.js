@@ -66,11 +66,21 @@ describe('Page view', () => {
     const view = new View(model, api);
 
     fetch.mockResponseOnce(JSON.stringify({
-      notes: ['this is a test note']
+      notes: ['this is a test note', 'other']
     }));
 
     view.displayNotesFromApi((returnedData) => {
-      expect(returnedData.notes).toEqual(['this is a test note']);
+      expect(returnedData.notes).toEqual(['this is a test note', 'other']);
     });
+  });
+
+  xit('tests the real API', () => {
+    const model = new Model;
+    const api = new Api;
+    const view = new View(model, api);
+
+    view.displayNotesFromApi();
+    expect(model.getNotes()).toBe(["This note is coming from the server","Another one"])
   })
+
 });
