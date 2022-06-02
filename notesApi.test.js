@@ -10,8 +10,21 @@ describe("API class", () => {
       notes: ['this is a test note']
     }));
 
-    api.loadNotes((returnedData) => {
-      expect(returnedData.notes).toEqual(['this is a test note']);
+    api.loadNotes((data) => {
+      expect(data.notes).toEqual(['this is a test note']);
     });
   });
+
+  // xit('createNote function creates a note', () => {
+  //   const api = new NotesApi;
+  //   let newNote = 'Learn JS';
+
+  //   fetch.mockResponseOnce(JSON.stringify({
+  //     note: newNote
+  //   }));
+
+  //   api.createNote(newNote, (data) => {
+  //     expect(data.note).toEqual(newNote);
+  //   });
+  // });
 });

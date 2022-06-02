@@ -25,7 +25,7 @@ class View {
 
     const notes = this.model.getNotes();
 
-    notes.forEach(note => {
+    notes.forEach((note) => {
       const noteEl = document.createElement("div");
       noteEl.innerText = note;
       noteEl.className = 'note';
@@ -34,8 +34,10 @@ class View {
   }
 
   displayNotesFromApi() {
-    this.api.loadNotes((data) => {this.model.setNotes(data)});
-    this.displayNotes();
+    this.api.loadNotes((data) => {
+      this.model.setNotes(data.notes);
+      this.displayNotes();
+    });
   }
 };
 
